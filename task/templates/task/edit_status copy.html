@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block title %}Editar Cotação{% endblock %}
+{% block content %}
+
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">Editar Documentos de Projeto</strong>
+                    </div>
+
+                    <div class="card-body">
+                      <div class="card-table">
+                        <table id="bootstrap-data-table" class="table table-striped table-bordered"> <!-- id="bootstrap-data-table" class="table table-striped table-bordered" -->
+                            <thead>
+                                <tr>
+                                  <th id="col-name-doc">NOME DO COLABORADOR</th>
+                                  <th id="col-company-name">NOME DA ATIVIDADE</th>
+                                  <th id="col-comment">STATUS</th>
+                                  <th id="col-comment">COMENTÁRIOS</th>
+                                  <th id="col-comment">DATA DE ÍNICIO DO TAREFA</th>
+                                  <th id="col-company-name">PREVISÃO DE ENTREGA</th>
+                                  <th id="col-comment">FIM DA TAREFA</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <form method="POST">
+                                    {% csrf_token %}
+                                    <!-- {{ form.as_p }} -->
+                                    <tr>
+                                        <td >{{form.collab_name}}</td>
+                                        <td >{{form.activity_name}}</td>
+                                        <td >{{form.activity_status}}</td>
+                                        <td >{{form.activity_comments}}</td>
+                                        <td >{{form.activity_date_start}}</td>
+                                        <td >{{form.activity_date_prev}}</td>
+                                        <td >{{form.activity_date_end}}</td>
+                                    <div class="form-group clearfix" name="cota">
+                                        <div class="icheck-primary d-inline">
+                                          <input type="checkbox" id="checkboxPrimary1" name="cota1">
+                                          <label for="checkboxPrimary1">
+                                            Cotação por Qt Páginas
+                                          </label>
+                                        </div>
+                                        <div class="icheck-primary d-inline">
+                                          <input type="checkbox" id="checkboxPrimary2" name="cota2">
+                                          <label for="checkboxPrimary2">
+                                            Cotação por HH
+                                          </label>
+                                        </div>
+                                        <div class="icheck-primary d-inline">
+                                          <input type="checkbox" id="checkboxPrimary3" name="cota3"> <!-- disabled="">  checked="" -->
+                                          <label for="checkboxPrimary3">
+                                            Cotação por A1 Equivalente
+                                          </label>
+                                        </div>
+                                      </div>
+                                </div>
+                                
+                                    <div class="btn-group">
+                                        <input type="submit" class="btn btn-success" value="Editar">
+                                        <a href="{% url 'ativ_collab' %}"><button type="submit" class="btn btn-light" title="back" name="index" value="0">Voltar</button></a>
+                                    </div>
+
+                                    
+                                </form>
+                            </tbody>
+                        </table>
+                      </div>
+                    </div>
+
+                </div>
+                <!-- /.row -->
+              </div>
+              <!-- /.container-fluid -->
+            </section>
+            <!-- /.content -->
+          </div>
+
+
+
+{% endblock %}
